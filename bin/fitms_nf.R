@@ -6,11 +6,12 @@ args = commandArgs(trailingOnly=TRUE)
 sample <- args[1]
 all <- args[2]
 clonal_any <- args[3]
-clonal_early <- args[4]
-clonal_late <- args[5]
-subclonal <- args[6]
+clonal_NA <- args[4]
+clonal_early <- args[5]
+clonal_late <- args[6]
+subclonal <- args[7]
 
-clonality_in <- c(all, clonal_any, clonal_early, clonal_late, subclonal)
+clonality_in <- c(all, clonal_any, clonal_NA, clonal_early, clonal_late, subclonal)
 clonality <- list()
 
 for(state in clonality_in){
