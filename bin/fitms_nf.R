@@ -44,7 +44,7 @@ write.csv(df, paste0(sample, '_clonality_state_catalogue.csv'))
 
 plotSubsSignatures(signature_data_matrix = df,output_file = paste0(sample, "_SNV_catalogues.pdf"))
 
-res <-FitMS(catalogues = catalogue 
+res <-FitMS(catalogues = catalogue,
             organ =organ, 
             exposureFilterType="giniScaledThreshold",
             useBootstrap = TRUE, 
