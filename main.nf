@@ -4,7 +4,7 @@ Channel
     .fromPath(params.inputlist)
     .ifEmpty {exit 1, "Cannot find input file : ${params.inputlist}"}
     .splitCsv(skip:1)
-    .map{tumour_sample_platekey,mtr_input -> [tumour_sample_platekey, file(mtr_input)]}
+    .map{tumour_sample_platekey, all, clonal_any, clonal_early, clonal_late, subclonal -> [tumour_sample_platekey, file(all), file(clonal_any), file(clonal_early), file(clonal_late), file(subclonal)]}
     .set{ ch_input }
 
 
@@ -15,16 +15,16 @@ process  CloudOS_MTR_input{
     publishDir "${params.outdir}/$tumour_sample_platekey", mode: 'copy'
     
     input:
-    set val(tumour_sample_platekey), file(mtr_input) from ch_input
+    set val(tumour_sample_platekey), file(all), file(clonal_any), file(clonal_early), file(clonal_late), file(subclonal) from ch_input
 
     output:
     file "*_SNV_catalogues.pdf"
-    file "*_catalogue.csv"
+    file "*_clonality_state_catalogue.csv"
     //file "exposures.tsv"
     path "results/*"
     
     script:
     """
-    fitms_nf.R '$tumour_sample_platekey' '$mtr_input'
+    fitms_nf.R '$tumour_sample_platekey' '$all' '$clonal_any' '$clonal_early' '$clonal_late' '$subclonal'
     """ 
 }
