@@ -43,7 +43,7 @@ for (state in clonality){
     df <- data.frame(res$catalogue)
     df = df.rename(columns={'catalogue': paste0(sample, '_', clonality_print[counter])})
   }
-  else
+  else{
     df[paste0(sample, '_', clonality_print[counter]))] <- res$catalogue
 }
 
