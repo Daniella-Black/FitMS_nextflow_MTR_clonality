@@ -45,6 +45,7 @@ for (state in clonality){
   }
   else{
     df[paste0(sample, '_', clonality_print[counter])] <- res$catalogue
+    }
 }
 
 write.csv(df, paste0(sample, '_clonality_state_catalogue.csv'))
