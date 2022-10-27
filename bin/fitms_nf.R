@@ -41,10 +41,10 @@ for (state in clonality){
   res <- tabToSNVcatalogue(tab, genome.v)
   if(counter == 0){
     df <- data.frame(res$catalogue)
-    df = df.rename(columns={'catalogue': paste0(sample, '_', clonality_print[counter)})
+    df = df.rename(columns={'catalogue': paste0(sample, '_', clonality_print[counter])})
   }
   else
-    df[paste0(sample, '_', clonality_print[counter))] <- res$catalogue
+    df[paste0(sample, '_', clonality_print[counter]))] <- res$catalogue
 }
 
 write.csv(df, paste0(sample, '_clonality_state_catalogue.csv'))
