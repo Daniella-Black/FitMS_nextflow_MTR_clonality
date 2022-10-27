@@ -42,7 +42,7 @@ for (state in clonality){
 write.csv(df, paste0(sample, '_clonality_state_catalogue.csv'))
 
 
-plotSubsSignatures(signature_data_matrix = df,output_file = paste0(corepath, sample, "_SNV_catalogues.pdf"))
+plotSubsSignatures(signature_data_matrix = df,output_file = paste0(sample, "_SNV_catalogues.pdf"))
 
 res <-FitMS(catalogues = catalogue1, 
             organ =organ, 
