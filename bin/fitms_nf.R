@@ -5,6 +5,10 @@ organ = "Breast"
 genome.v  ="hg38"
 args = commandArgs(trailingOnly=TRUE)
 
+print_var <- function(v1) {
+  deparse(substitute(v1))
+}
+
 sample <- args[1]
 all <- args[2]
 clonal_any <- args[3]
@@ -20,7 +24,7 @@ clonality <- list()
 for(state in clonality_in){
   if(state != 'False'){
     clonality <- append(clonality, state)
-    state_print <- [ i for i, a in locals().items() if a == state][0]
+    state_print <- print_var(state)
     clonality_print <- append(clonality_print, state_print)
   }
 }
