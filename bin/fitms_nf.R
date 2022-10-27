@@ -1,8 +1,8 @@
 #!/usr/local/bin/Rscript
 library(VariantAnnotation)
 library(signature.tools.lib)
-organ= "breast"
-genome.v="hg38"
+organ = "Breast"
+genome.v  ="hg38"
 args = commandArgs(trailingOnly=TRUE)
 
 sample <- args[1]
