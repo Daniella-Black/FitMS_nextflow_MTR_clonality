@@ -44,7 +44,7 @@ for (state in clonality){
     df = df.rename(columns={'catalogue': paste0(sample, '_', clonality_print[counter])})
   }
   else{
-    df[paste0(sample, '_', clonality_print[counter]))] <- res$catalogue
+    df[paste0(sample, '_', clonality_print[counter])] <- res$catalogue
 }
 
 write.csv(df, paste0(sample, '_clonality_state_catalogue.csv'))
