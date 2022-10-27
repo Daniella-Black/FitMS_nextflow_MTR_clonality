@@ -29,7 +29,7 @@ for(state in clonality_in){
   }
 }
 
-counter = -1
+counter =0
 for (state in clonality){
   counter = counter +1
   filenameinput = state
