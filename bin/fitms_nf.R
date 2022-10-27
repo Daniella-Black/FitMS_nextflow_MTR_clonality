@@ -14,17 +14,20 @@ clonal_late <- args[6]
 subclonal <- args[7]
 
 clonality_in <- c(all, clonal_any, clonal_NA, clonal_early, clonal_late, subclonal)
+clonality_print <- list()
 clonality <- list()
 
 for(state in clonality_in){
   if(state != 'False'){
     clonality <- append(clonality, state)
+    state_print = [ i for i, a in locals().items() if a == state][0]
+    clonality_print <- append(clonality_print, state_print)
   }
 }
 
-counter2 = 0
+counter = -1
 for (state in clonality){
-  counter2 = counter2 +1
+  counter = counter +1
   filenameinput = state
   tab <- read.table(filenameinput, sep='\t')
   names(tab) <- tab[1,]
@@ -32,11 +35,12 @@ for (state in clonality){
   rownames(tab) <-NULL
   tab$position <- as.numeric(tab$position)
   res <- tabToSNVcatalogue(tab, genome.v)
-  if(counter2 == 1){
+  if(counter == 0){
     df <- data.frame(res$catalogue)
+    df = df.rename(columns={'catalogue': paste0(sample, '_', clonality_print[counter)})
   }
   else
-    df[paste0(sample, '_', state)] <- res$catalogue
+    df[paste0(sample, '_', clonality_print[counter))] <- res$catalogue
 }
 
 write.csv(df, paste0(sample, '_clonality_state_catalogue.csv'))
