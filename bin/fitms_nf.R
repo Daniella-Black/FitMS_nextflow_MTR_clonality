@@ -20,7 +20,7 @@ clonality <- list()
 for(state in clonality_in){
   if(state != 'False'){
     clonality <- append(clonality, state)
-    state_print = [ i for i, a in locals().items() if a == state][0]
+    state_print <- [ i for i, a in locals().items() if a == state][0]
     clonality_print <- append(clonality_print, state_print)
   }
 }
