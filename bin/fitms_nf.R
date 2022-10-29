@@ -27,11 +27,11 @@ for (state in 2:7){
     res <- tabToSNVcatalogue(tab, genome.v)
     if(state == 2){
        df <- data.frame(res$catalogue)
-     #names(df)[names(df) == 'catalogue'] <- paste0(sample, '_',clonality_list[state])
+       names(df)[names(df) == 'catalogue'] <- paste0(sample, '_',clonality_list[state])
         }
     else{
       df$'placeholder' <- res$catalogue$catalogue
-      #names(df)[names(df) == 'placeholder'] <- paste0(sample, '_',clonality_list[state])
+      names(df)[names(df) == 'placeholder'] <- paste0(sample, '_',clonality_list[state])
       }
    }
 }
