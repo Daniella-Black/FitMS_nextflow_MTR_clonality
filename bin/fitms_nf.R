@@ -21,10 +21,10 @@ clonality_in <- c(all, clonal_any, clonal_NA, clonal_early, clonal_late, subclon
 clonality_print <- list()
 clonality <- list()
 
-for(state in clonality_in){
+for(state in 1:length(clonality_in)){
   if(state != 'False'){
-    clonality <- append(clonality, state)
-    state_print <- print_var(state)
+    clonality <- append(clonality, clonality_in[state])
+    state_print <- deparse(clonality_in[state])
     clonality_print <- append(clonality_print, state_print)
   }
 }
