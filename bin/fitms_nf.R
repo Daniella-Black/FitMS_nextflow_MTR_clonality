@@ -44,7 +44,8 @@ for (state in clonality){
     df = df.rename(columns={'catalogue': paste0(sample, '_', clonality_print[counter])})
   }
   else{
-    df$paste0(sample, '_', clonality_print[counter]) <- res$catalogue
+    df$'placeholder' <- res$catalogue$catalogue
+    df = df.rename(columns={'placeholder': paste0(sample, '_', clonality_print[counter])})
     }
 }
 
