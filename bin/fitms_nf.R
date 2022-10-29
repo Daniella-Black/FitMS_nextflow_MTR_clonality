@@ -50,7 +50,7 @@ for (state in 2:7){
     rownames(tab) <-NULL
     tab$position <- as.numeric(tab$position)
     res <- tabToSNVcatalogue(tab, genome.v)
-    if(counter == 0){
+    if(state == 2){
        df <- data.frame(res$catalogue)
      #names(df)[names(df) == 'catalogue'] <- paste0(sample, '_',clonality_print[state])
         }
