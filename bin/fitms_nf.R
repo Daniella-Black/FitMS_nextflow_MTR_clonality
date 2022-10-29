@@ -41,11 +41,11 @@ for (state in clonality){
   res <- tabToSNVcatalogue(tab, genome.v)
   if(counter == 0){
     df <- data.frame(res$catalogue)
-    df = df.rename(columns={'catalogue': paste0(sample, '_', clonality_print[counter])})
+    names(df)[names(df) == 'catalogue'] <- paste0(sample, '_',clonality_print[counter])
   }
   else{
     df$'placeholder' <- res$catalogue$catalogue
-    df = df.rename(columns={'placeholder': paste0(sample, '_', clonality_print[counter])})
+    names(df)[names(df) == 'placeholder'] <- paste0(sample, '_',clonality_print[counter])
     }
 }
 
