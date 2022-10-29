@@ -14,32 +14,7 @@ clonal_early <- args[5]
 clonal_late <- args[6]
 subclonal <- args[7]
 
-#clonality_in <- c(all, clonal_any, clonal_NA, clonal_early, clonal_late, subclonal)
-#clonality_print <- list()
-#clonality <- list()
-
-#for(state in 1:length(clonality_in)){
-#  if(clonality_in[state] != 'False'){
-#    clonality <- append(clonality, clonality_in[state])
-#    state_print <- deparse(clonality_in[state])
-#    clonality_print <- append(clonality_print, state_print)
-#  }
-#}
-
-#fileConn<-file("clonality.txt")
-#writeLines(clonality, fileConn)
-#close(fileConn)
-
-#fileConn<-file("clonality_print.txt")
-#writeLines(clonality_print, fileConn)
-#close(fileConn)
-
-
-#fileConn<-file("clonality_in.txt")
-#writeLines(clonality_in, fileConn)
-#close(fileConn)
-
-
+clonality_list <- c('sample', 'all', 'clonal_any', 'clonal_NA', 'clonal_early', 'clonal_late', 'subclonal')
 
 for (state in 2:7){
   filenameinput <- args[state]
@@ -52,11 +27,11 @@ for (state in 2:7){
     res <- tabToSNVcatalogue(tab, genome.v)
     if(state == 2){
        df <- data.frame(res$catalogue)
-     #names(df)[names(df) == 'catalogue'] <- paste0(sample, '_',clonality_print[state])
+     #names(df)[names(df) == 'catalogue'] <- paste0(sample, '_',clonality_list[state])
         }
     else{
       df$'placeholder' <- res$catalogue$catalogue
-      #names(df)[names(df) == 'placeholder'] <- paste0(sample, '_',clonality_print[state])
+      #names(df)[names(df) == 'placeholder'] <- paste0(sample, '_',clonality_list[state])
       }
    }
 }
