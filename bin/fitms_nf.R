@@ -42,8 +42,8 @@ subclonal <- args[7]
 
 
 for (state in 2:7){
-  filenameinput = args[state]
-  if file.exists(filenameinput){
+  filenameinput <- args[state]
+  if(file.exists(filenameinput)){
     tab <- read.table(filenameinput, sep='\t')
     names(tab) <- tab[1,]
     tab <- tab[-1,]
