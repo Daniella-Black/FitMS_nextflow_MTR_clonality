@@ -5,9 +5,6 @@ organ = "Breast"
 genome.v  ="hg38"
 args = commandArgs(trailingOnly=TRUE)
 
-print_var <- function(v1) {
-  deparse(substitute(v1))
-}
 
 sample <- args[1]
 all <- args[2]
