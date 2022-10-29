@@ -18,12 +18,11 @@ process  CloudOS_MTR_input{
     set val(tumour_sample_platekey), file(all), file(clonal_any), file(clonal_NA), file(clonal_early), file(clonal_late), file(subclonal) from ch_input
 
     output:
-    //file "*_SNV_catalogues.pdf"
-    //file "*_clonality_state_catalogue.csv"
-    //file "exposures.tsv"
-    //path "results/*"
-   // file "clonality.txt"
-    file "clonality_print.txt"
+    file "*_SNV_catalogues.pdf"
+    file "*_clonality_state_catalogue.csv"
+    path "results/*"
+    // file "clonality.txt"
+    //file "clonality_print.txt"
     //file "clonality_in.txt"
     
     script:
