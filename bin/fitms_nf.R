@@ -26,18 +26,18 @@ for(state in 1:length(clonality_in)){
   }
 }
 
-fileConn<-file("clonality.txt")
-writeLines(clonality, fileConn)
-close(fileConn)
+#fileConn<-file("clonality.txt")
+#writeLines(clonality, fileConn)
+#close(fileConn)
 
 fileConn<-file("clonality_print.txt")
 writeLines(clonality_print, fileConn)
 close(fileConn)
 
 
-fileConn<-file("clonality_in.txt")
-writeLines(clonality_in, fileConn)
-close(fileConn)
+#fileConn<-file("clonality_in.txt")
+#writeLines(clonality_in, fileConn)
+#close(fileConn)
 
 
 
