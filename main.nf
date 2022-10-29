@@ -22,9 +22,9 @@ process  CloudOS_MTR_input{
     //file "*_clonality_state_catalogue.csv"
     //file "exposures.tsv"
     //path "results/*"
-    file "clonality.txt"
+   // file "clonality.txt"
     file "clonality_print.txt"
-    file "clonality_in.txt"
+    //file "clonality_in.txt"
     
     script:
     """
