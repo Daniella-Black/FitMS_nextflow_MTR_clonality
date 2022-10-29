@@ -26,10 +26,9 @@ for(state in 1:length(clonality_in)){
   }
 }
 
-counter =0
-for (state in clonality){
-  counter = counter +1
-  filenameinput = state
+
+for (state in 1:length(clonality)){
+  filenameinput = clonality[state]
   tab <- read.table(filenameinput, sep='\t')
   names(tab) <- tab[1,]
   tab <- tab[-1,]
@@ -38,11 +37,11 @@ for (state in clonality){
   res <- tabToSNVcatalogue(tab, genome.v)
   if(counter == 0){
     df <- data.frame(res$catalogue)
-    names(df)[names(df) == 'catalogue'] <- paste0(sample, '_',clonality_print[counter])
+    names(df)[names(df) == 'catalogue'] <- paste0(sample, '_',clonality_print[state])
   }
   else{
     df$'placeholder' <- res$catalogue$catalogue
-    names(df)[names(df) == 'placeholder'] <- paste0(sample, '_',clonality_print[counter])
+    names(df)[names(df) == 'placeholder'] <- paste0(sample, '_',clonality_print[state])
     }
 }
 
