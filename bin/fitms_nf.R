@@ -18,8 +18,8 @@ clonality_list <- c('sample', 'all', 'clonal_any', 'clonal_NA', 'clonal_early', 
 
 for (state in 2:7){
   filenameinput <- args[state]
-  if(file.exists(filenameinput)){
-    tab <- read.table(filenameinput, sep='\t')
+  tab <- read.table(filenameinput, sep='\t')
+  if(nrow(tab) >3){
     names(tab) <- tab[1,]
     tab <- tab[-1,]
     rownames(tab) <-NULL
@@ -33,7 +33,7 @@ for (state in 2:7){
       df$'placeholder' <- res$catalogue$catalogue
       names(df)[names(df) == 'placeholder'] <- paste0(sample, '_',clonality_list[state])
       }
-   }
+    }
 }
 
 write.csv(df, paste0(sample, '_clonality_state_catalogue.csv'))
