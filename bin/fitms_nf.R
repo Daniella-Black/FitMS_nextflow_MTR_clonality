@@ -43,7 +43,8 @@ plotSubsSignatures(signature_data_matrix = df,output_file = paste0(sample, "_SNV
 
 res <-FitMS(catalogues = df,
            organ =organ, 
-           exposureFilterType="giniScaledThreshold",
+           #27/10/2022 run used gini, now 09/01/2022 trying without
+           #exposureFilterType="giniScaledThreshold",
            useBootstrap = TRUE, 
            nboot = 200)
 
